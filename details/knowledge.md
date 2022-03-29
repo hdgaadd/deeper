@@ -7,7 +7,7 @@
     ```java
     Iterator<Integer> iterator = list.iterator();
             while(iterator.hasNext()){ 
-                int ans=iterator.next();             //每一次next()得到一个元素，并且该next()操作会把指针向后移动，下一次iterator.next()得到的是下一个元素
+                int ans=iterator.next();             // 每一次next()得到一个元素，并且该next()操作会把指针向后移动，下一次iterator.next()得到的是下一个元素
                 if(ans==2)
                     iterator.remove();
     }
