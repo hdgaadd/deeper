@@ -558,9 +558,9 @@
 
 - **for循环下的synchronized**
 
-  - for循环下的synchronized可用，执行一个for循环后可能就失去资源锁而进入等待状态，输出与for循环顺序不一致
+  for循环下的synchronized可用，执行一个for循环后可能就失去资源锁而进入等待状态，输出与for循环顺序不一致
 
-    而synchonized下的for循环，执行顺序是按for循环的顺序
+  而synchonized下的for循环，执行顺序是按for循环的顺序
 
 - **volatile有什么用**
 
@@ -593,6 +593,14 @@
     
       指循环等待10次
   
+- **锁消除**
+
+  当一段程序加上同步锁后，若JVM**检测不到**任何线程会竞争该锁资源，则会进行锁消除，忽略该同步代码块
+
+- **锁粗化**
+
+  若一系列连续的操作都是对**同一个**锁资源进行请求，则JVM会把锁的范围**粗化**到这一系列连续操作的外部，这样则只需要获取**一次**锁资源即可
+
 - **分段锁**
 
   - JDK7
@@ -611,11 +619,7 @@
 
 - **HashTable和ConcurrentHashMap效率对比**
 
-  - HashTable锁住的是整个链表，而ConcurrentHashMap锁住的是一个分段，后者效率更高
-
-- **锁消除**
-
-  - 当一段程序加上同步锁后，若JVM**检测不到**任何线程会竞争该锁资源，则会进行锁消除，忽略该同步代码块
+  HashTable锁住的是整个链表，而ConcurrentHashMap锁住的是一个分段，后者效率更高
 
 - **Java有什么锁**
 
@@ -2456,82 +2460,6 @@
     - 前端控制器再把View渲染成**视图**
 
     - 把视图返回给前端，展示给用户
-
-
-
-
-
-
-
-# 大三下学期面试题
-
-线程三种方式
-线程状态 线程方法
-springmvc流程
-视图解析器
-请求转发 
-get post 
-包装类
-== equalss
-string操作类
-api是什么
-线程安全 线程状态
-封装继承多态
-
-spring怎么创建对象
-设计模式有哪些
-单例模式
-悲观锁乐观锁
-事务的特性
-
-mybatis的分页插件PageHelper
-多态
-arraylist linkedlist
-序列化和反序列化
-spring解决循环依赖
-mybatis隔离级别
-脏读
-new创建对象的生命周期
-
-sql语句 #和$
-selevt生命周期
-jdk1.8新特性
-tup与udp
-400 500
-linux命令 查找服务进程号、全局找文件、查看日志
-脏读、不可重复读
-String、StringBuffer、StringBuilder的区别
-
-java的集合
-线程安全的集合
-乐观锁悲观锁
-springboot自动配置原理
-spring bean的生命周期
-
-super
-asList
-字符串大小写
-
-集合线程io反射那些熟悉
-集合底层数据结构，list底层
-spring解决什么问题
-bean的生命周期
-spring管理事务怎么配置
-树的底层
-复杂度log怎么算
-
-singleton和prototype
-final和static
-
-自己搭建项目
-mysq数据分页查询
-事务是什么
-
-hashtable、hashmap、cocenthosmap区别
-springbean注入springmvc，还是反过来
-微服务dubbo
-mysql索引
-数据库分表
 
 
 
