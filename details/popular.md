@@ -652,11 +652,11 @@
   
 - **线程是怎么通信的**
 
-  - notifyAll、notify、signal、volatile:被volatile修饰的变量一个线程更新了该值，会通过主内存这条消息总线告诉所有使用该变量的线程
+  notifyAll、notify、signal、volatile:被volatile修饰的变量一个线程更新了该值，会通过主内存这条消息总线告诉所有使用该变量的线程
 
 - **进程线程**
 
-  - 进程是资源分配的最小单位，线程是CPU调度的最小单位
+  进程是资源分配的最小单位，线程是CPU调度的最小单位
   
 - **java线程状态或线程的生命周期**
 
@@ -1978,13 +1978,11 @@
 
 - **Channel是什么**
 
-  > Socket是什么：Socket是处于应用层和TCP/UDP之间的抽象层，我们可以使用Socket在TCP/UDP协议上对数据进行接收、获取和处理
+  > Socket是什么：Socket是处于应用层和TCP/UDP之间的抽象层，我们可以使用Socket在**TCP/UDP协议**上对数据进行接收、获取和处理
 
   Channel的解释同上
 
   Tomcat通过new ServerSocket().accept()创建该某个端口监听的Socket对象，Channel相当于一个Socket对象
-
-  
 
 - **长连接与心跳机制**
 
