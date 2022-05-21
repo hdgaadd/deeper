@@ -720,22 +720,18 @@
     
       ```java
       public class security {
-        public static void main(String[] args) {
+          public static void main(String[] args) {
               ExecutorService es = Executors.newFixedThreadPool(20);
-            for (int i = 0; i < 20; i++) {
+              for (int i = 0; i < 20; i++) {
                   int number = i;
-                  es.execute(() -> System.out.println(number + ":" + new intUtil().addTen(number)));
+                  es.execute(() -> System.out.println(number + ":" + intUtil.addTen(number)));
               }
           }
           static class intUtil {
-              public static int num = 0;
-              
-              public static ThreadLocal<Integer> threadLocal = new ThreadLocal<>(); // 使用threadLocal保存线程保存的当前共享变量num
+              public static ThreadLocal<Integer> threadLocal = new ThreadLocal<>(); // 使用threadLocal保存线程变量
       
               public static int addTen(int number) {
-                  num = number;
-                  threadLocal.set(num);
-                  
+                  threadLocal.set(number);
                   try { // 休息1秒
                       TimeUnit.SECONDS.sleep(1);
                   } catch (InterruptedException e) {
@@ -826,8 +822,12 @@
   
 - **ThreadLocal的底层**
 
-  - 保存了ThreadLocalMap，其中key为Thread线程对象，val为变量值
-  - 
+  保存了**ThreadLocalMap**，其中key为Thread线程对象，val为变量值
+  
+- **ThreadLocal共享变量的方法**
+
+  - 找不到实现**其他线程可以访问**某线程特有变量的方法，只有本线程通过**get()**获取该线程所存储的变量
+  - ThreadLocal没有所谓的共享变量，实现的作用是保存共享变量
 
 
 
@@ -1575,12 +1575,12 @@
 
     - 类似与**HashMap**的底层数据结构，底层为数组，通过对索引列进行hash找到该值的位置，且哈希冲突采用的解决方案拉链法
     - **缺陷**
-
+    
         - 对**范围查询**不友好
         - hash算法设计不完善，会导致碰撞多，性能效率下降
 
 
-    
+​    
 
 
 
@@ -2428,11 +2428,17 @@
 
   - 工厂方法模式
 
-    spring拥有许多Factory工厂，工厂的实现是推迟到子类
+    spring的Factory工厂的实现都推迟到子类
+
+    继承延迟概念，BeanFactory的属性注入都进行了延迟，待到使用时再进行**注入**
 
   - 单例模式 
-
+  
     bean的类型是single
+    
+  - 代理设计模式
+  
+    Spring AOP实现的过滤拦截
   
 
 
