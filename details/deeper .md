@@ -220,6 +220,12 @@
   - 客户端与服务器建立**TCP**连接
 
   - 客户端开始发起HTTP请求
+  
+- **TCP长连-数据协议**
+
+  Protobuf协议为**高度压缩**的通信协议，该协议的Protocol buff的传输效率相比JSON快了6倍
+
+- 
 
 
 # operation system
