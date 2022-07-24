@@ -225,8 +225,6 @@
 
   Protobuf协议为**高度压缩**的通信协议，该协议的Protocol buff的传输效率相比JSON快了6倍
 
-- 
-
 
 # operation system
 
@@ -257,7 +255,7 @@
 
 
 
-# 加密技术
+# encryption
 
 **MD5**
 
@@ -283,7 +281,7 @@
 
 
 
-# 攻击技术
+# attack
 
 **跨站脚本攻击**
 
@@ -341,7 +339,7 @@
 
 
 
-# problem
+# how to achieve
 
 - **如何从存储大量的url的a、b两个文件中，获取相同的url**
 
